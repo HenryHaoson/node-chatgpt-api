@@ -9,4 +9,4 @@ services:
     volumes:
       - ./settings.js:/var/chatgpt-api/settings.js:cached
     ports:
-      - '${APP_PORT:-3000}:3000'
+      - '${APP_PORT:-4000}:4000'

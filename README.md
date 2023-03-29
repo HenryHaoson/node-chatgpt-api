@@ -238,7 +238,7 @@ module.exports = {
     },
     // Options for the API server
     apiOptions: {
-        port: process.env.API_PORT || 3000,
+        port: process.env.API_PORT || 4000,
         host: process.env.API_HOST || 'localhost',
         // (Optional) Set to true to enable `console.debug()` logging
         debug: false,
@@ -384,7 +384,7 @@ See [demos/use-api-server-streaming.js](demos/use-api-server-streaming.js) for a
 
 Successful output:
 ```JS
-{ data: '', event: '', id: '', retry: 3000 }
+{ data: '', event: '', id: '', retry: 4000 }
 { data: 'Hello', event: '', id: '', retry: undefined }
 { data: '!', event: '', id: '', retry: undefined }
 { data: ' How', event: '', id: '', retry: undefined }
@@ -503,7 +503,7 @@ Since `gpt-3.5-turbo` is ChatGPT's underlying model, I had to do my best to repl
 This means my implementation or the underlying model may not behave exactly the same in some ways:
 - Conversations are not tied to any user IDs, so if that's important to you, you should implement your own user ID system.
 - ChatGPT's model parameters (temperature, frequency penalty, etc.) are unknown, so I set some defaults that I thought would be reasonable.
-- Conversations are limited to roughly the last 3000 tokens, so earlier messages may be forgotten during longer conversations.
+- Conversations are limited to roughly the last 4000 tokens, so earlier messages may be forgotten during longer conversations.
     - This works in a similar way to ChatGPT, except I'm pretty sure they have some additional way of retrieving context from earlier messages when needed (which can probably be achieved with embeddings, but I consider that out-of-scope for now).
 
 ## Contributing

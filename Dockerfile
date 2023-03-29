@@ -1,4 +1,6 @@
-FROM alpine:latest
+FROM registry.cn-hangzhou.aliyuncs.com/acs/alpine:latest
+RUN echo "https://mirrors.aliyun.com/alpine/latest-stable/main" > /etc/apk/repositories \
+    && echo "https://mirrors.aliyun.com/alpine/latest-stable/community" >> /etc/apk/repositories
 
 RUN apk add nodejs
 RUN apk add npm

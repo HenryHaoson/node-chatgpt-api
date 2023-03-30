@@ -3,7 +3,8 @@ import crypto from 'crypto';
 import Keyv from 'keyv';
 import { encoding_for_model as encodingForModel, get_encoding as getEncoding } from '@dqbd/tiktoken';
 import { fetchEventSource } from '@waylaidwanderer/fetch-event-source';
-import { Agent, ProxyAgent } from 'undici';
+import { Agent } from 'undici';
+import {SocksProxyAgent} from 'socks-proxy-agent';
 
 const CHATGPT_MODEL = 'gpt-3.5-turbo';
 
@@ -176,7 +177,7 @@ export default class ChatGPTClient {
         }
 
         if (this.options.proxy) {
-            opts.dispatcher = new ProxyAgent({
+            opts.dispatcher = new SocksProxyAgent({
                 bodyTimeout: 0,
                 headersTimeout: 0,
                 uri: this.options.proxy,

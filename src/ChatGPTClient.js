@@ -4,6 +4,7 @@ import Keyv from 'keyv';
 import { encoding_for_model as encodingForModel, get_encoding as getEncoding } from '@dqbd/tiktoken';
 import { fetchEventSource } from '@waylaidwanderer/fetch-event-source';
 import {SocksProxyAgent} from 'socks-proxy-agent';
+import { Agent } from 'undici';
 
 const CHATGPT_MODEL = 'gpt-3.5-turbo';
 
@@ -166,7 +167,7 @@ export default class ChatGPTClient {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(modelOptions),
-            agent: null,
+            agent: Agent,
         };
         if (this.apiKey) {
             opts.headers.Authorization = `Bearer ${this.apiKey}`;
@@ -247,6 +248,7 @@ export default class ChatGPTClient {
             });
         }
         console.log('api mode');
+        console.log('opt', opts);
         const response = await fetch(
             url,
             {

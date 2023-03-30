@@ -1,10 +1,10 @@
-import {
-    fetch, Headers, Request, Response,
-} from 'fetch-undici';
+// import {
+//     fetch, Headers, Request, Response,
+// } from 'fetch-undici';
 
-if (!globalThis.fetch) {
-    globalThis.fetch = fetch;
-    globalThis.Headers = Headers;
-    globalThis.Request = Request;
-    globalThis.Response = Response;
-}
+// if (!globalThis.fetch) {
+//     globalThis.fetch = fetch;
+//     globalThis.Headers = Headers;
+//     globalThis.Request = Request;
+//     globalThis.Response = Response;
+// }

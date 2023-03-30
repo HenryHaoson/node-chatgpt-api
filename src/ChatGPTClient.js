@@ -180,6 +180,7 @@ export default class ChatGPTClient {
         }
 
         if (modelOptions.stream) {
+            console.log('stream mode');
             // eslint-disable-next-line no-async-promise-executor
             return new Promise(async (resolve, reject) => {
                 try {
@@ -246,6 +247,7 @@ export default class ChatGPTClient {
                 }
             });
         }
+        console.log('api mode');
         const response = await fetch(
             url,
             {
@@ -253,6 +255,7 @@ export default class ChatGPTClient {
                 signal: abortController.signal,
             },
         );
+        console.log('api mode res', response.status);
         if (response.status !== 200) {
             const body = await response.text();
             const error = new Error(`Failed to send message. HTTP ${response.status} - ${body}`);

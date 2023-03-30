@@ -252,7 +252,7 @@ export default class ChatGPTClient {
             url,
             {
                 ...opts,
-                signal: abortController.signal,
+                // signal: abortController.signal,
             },
         );
         console.log('api mode res', response.status);

@@ -176,7 +176,11 @@ export default class ChatGPTClient {
         }
 
         if (this.options.proxy) {
-            opts.dispatcher = new ProxyAgent(this.options.proxy);
+            opts.dispatcher = new ProxyAgent({
+                bodyTimeout: 0,
+                headersTimeout: 0,
+                uri: this.options.proxy,
+            });
         }
 
         if (modelOptions.stream) {
@@ -252,7 +256,7 @@ export default class ChatGPTClient {
             url,
             {
                 ...opts,
-                // signal: abortController.signal,
+                signal: abortController.signal,
             },
         );
         console.log('api mode res', response.status);

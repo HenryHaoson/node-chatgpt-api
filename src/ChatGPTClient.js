@@ -144,8 +144,7 @@ export default class ChatGPTClient {
         }
         const modelOptions = { ...this.modelOptions };
         if (typeof onProgress === 'function') {
-            // todo
-            modelOptions.stream = false;
+            modelOptions.stream = true;
         }
         if (this.isChatGptModel) {
             modelOptions.messages = input;

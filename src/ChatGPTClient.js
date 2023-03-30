@@ -167,7 +167,7 @@ export default class ChatGPTClient {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(modelOptions),
-            dispatcher: new Agent({
+            agent: new Agent({
                 bodyTimeout: 0,
                 headersTimeout: 0,
             }),

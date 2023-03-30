@@ -144,7 +144,8 @@ export default class ChatGPTClient {
         }
         const modelOptions = { ...this.modelOptions };
         if (typeof onProgress === 'function') {
-            modelOptions.stream = true;
+            // todo
+            modelOptions.stream = false;
         }
         if (this.isChatGptModel) {
             modelOptions.messages = input;
@@ -240,6 +241,7 @@ export default class ChatGPTClient {
                         },
                     });
                 } catch (err) {
+                    console.log(err);
                     reject(err);
                 }
             });

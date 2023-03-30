@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import Keyv from 'keyv';
 import { fetchEventSource } from '@waylaidwanderer/fetch-event-source';
 import { ProxyAgent } from 'undici';
+import fetch from 'node-fetch';
 
 export default class ChatGPTBrowserClient {
     constructor(

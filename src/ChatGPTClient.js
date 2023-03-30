@@ -184,6 +184,8 @@ export default class ChatGPTClient {
             });
         }
 
+        console.log('fetchurl', url);
+
         if (modelOptions.stream) {
             console.log('stream mode');
             // eslint-disable-next-line no-async-promise-executor

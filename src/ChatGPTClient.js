@@ -177,11 +177,7 @@ export default class ChatGPTClient {
         }
 
         if (this.options.proxy) {
-            opts.dispatcher = new SocksProxyAgent({
-                bodyTimeout: 0,
-                headersTimeout: 0,
-                uri: this.options.proxy,
-            });
+            opts.dispatcher = new SocksProxyAgent(this.options.proxy);
         }
 
         console.log('fetchurl', url);
